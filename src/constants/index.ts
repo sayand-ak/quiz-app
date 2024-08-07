@@ -6,6 +6,7 @@ import { GrScorecard } from "react-icons/gr";
 
 
 
+
 //application name
 export const appHeading = "It's quiz time!";
 
@@ -35,3 +36,30 @@ export const directions = [
         statement: "Your score will be displayed at the end",
     },
 ];
+
+export const questions = [
+    {
+        question: "What is the capital of France?",
+        options: ["Berlin", "Madrid", "Paris", "Rome"],
+        answer: "Paris",
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Mars", "Jupiter", "Venus"],
+        answer: "Mars",
+    },
+    {
+        question: "Who wrote 'Romeo and Juliet'?",
+        options: ["Mark Twain", "Charles Dickens", "William Shakespeare", "Jane Austen"],
+        answer: "William Shakespeare",
+    },
+    {
+        question: "What is the smallest prime number?",
+        options: ["0", "1", "2", "3"],
+        answer: "2",
+    },
+];
+
+export const timer = 5000;
+
+

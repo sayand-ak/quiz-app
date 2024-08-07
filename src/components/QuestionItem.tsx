@@ -15,20 +15,18 @@ interface QuestionItemProps {
     submitted: boolean;
     selectedOption: string | null;
     setSelectedOption: (option: string) => void;
-    handleRadioChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-
+    handleRadioChange: (option: string) => void;
 }
 
-
-const QuestionItem:React.FC<QuestionItemProps> = ({question, option, index, idx, submitted, selectedOption, setSelectedOption, handleRadioChange}) => {
-    return(
+const QuestionItem: React.FC<QuestionItemProps> = ({ question, option, index, idx, submitted, selectedOption, handleRadioChange }) => {
+    return (
         <li
             key={idx}
             className={`${styles.paddingX} py-3 border rounded-lg flex justify-between items-center
-                ${submitted && option === question.answer ? 'border-[#4BB39B] bg-[#beffefcb]' : ''}
-                ${submitted && selectedOption === option && option !== question.answer ? 'border-[#cf6952] bg-[#ffcfc49a]' : ''}
+                ${submitted && option === question.answer ? 'border-successPrimary bg-successSecondary' : ''}
+                ${submitted && selectedOption === option && option !== question.answer ? 'border-errorPrimary bg-errorSecondary' : ''}
                 ${!submitted && selectedOption === option ? 'border-[#41a9ff]' : 'border'}`}
-            onClick={() => !submitted && setSelectedOption(option)}
+            onClick={() => !submitted && handleRadioChange(option)}
         >
             <p>{option}</p>
             <div className='radio-input'>
@@ -38,19 +36,19 @@ const QuestionItem:React.FC<QuestionItemProps> = ({question, option, index, idx,
                     name={`question-${index}`}
                     value={option}
                     checked={selectedOption === option}
-                    onChange={handleRadioChange}
-                    className="opacity-0" 
+                    onChange={() => handleRadioChange(option)}
+                    className="opacity-0"
                 />
                 
                 {submitted && option === question.answer && (
-                    <FaCheck className="text-[#4BB39B] text-[20px]"/>
+                    <FaCheck className="text-[#4BB39B] text-[20px]" />
                 )}
                 {submitted && selectedOption === option && option !== question.answer && (
-                    <IoMdClose className="text-[#cf6952] text-[20px]"/>
+                    <IoMdClose className="text-[#cf6952] text-[20px]" />
                 )}
             </div>
         </li>
-    )
+    );
 };
 
 export default QuestionItem;

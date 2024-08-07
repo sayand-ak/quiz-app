@@ -7,14 +7,14 @@ interface ProgressBarItemProps {
 
 const ProgressBarItem:React.FC<ProgressBarItemProps> = ({curIndex}) => {
 
-    const completed = (100 / questions.length)
-    console.log(curIndex, "----------");
-    
+    const totalQuestions = questions.length;
+    const percentageCompleted = ((curIndex) / totalQuestions) * 100;
+
   return (
     <div className="w-full md:w-1/2 flex justify-center items-center min-h-[5vh] mx-auto">
         <div className="w-[94%]">
             <ProgressBar
-                completed={100 / (questions.length - (curIndex + 1))}
+                completed={percentageCompleted==0 ? 10 : percentageCompleted}
                 height="9px"
                 width="100%"
                 labelSize="0"

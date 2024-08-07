@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Home, Quiz } from './pages';
+import { Home, Quiz, Result } from './pages';
 
 const App = () => {
 
@@ -9,6 +9,7 @@ const App = () => {
                 <Routes>
                     <Route path='/' element={< Home/>} />
                     <Route path='/quiz' element={<Quiz/>} />
+                    <Route path='/result' element={<Result/>} />
                 </Routes>
             </Router>
         </div>

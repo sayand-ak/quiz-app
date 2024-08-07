@@ -7,6 +7,10 @@ export default {
                 primary: "#FFFFFF",      
                 secondary: "#3E9FFF",   
                 tertiary: "#003366",   
+                successPrimary: "#4BB39B",
+                successSecondary: "#beffefcb",
+                errorPrimary: "#cf6952",
+                errorSecondary: "#ffcfc49a",
                 "black-100": "#2C2C2C", 
                 "black-200": "#1A1A1A", 
                 "white-100": "#F5F5F5" 

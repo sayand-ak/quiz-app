@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { setUserData } from '../features/userSlice';
-import { avatar1, avatar2 } from '../assets';
+import { avatar1, avatar2, dataCollectImg } from '../assets';
 
 interface FormValues {
     username: string;
@@ -59,7 +59,10 @@ const Profile: React.FC = () => {
     return (
         <div className="p-4 min-h-[100vh] bg-black-100 flex items-center justify-center">
             <div className='w-[90%] md:w-1/2 bg-white p-10 rounded-2xl'>
-                <h1 className="text-2xl font-bold mb-4 text-tertiary text-center">User Profile</h1>
+                <h1 className="text-2xl font-bold mb-4 text-tertiary text-center">Tell something about you!</h1>
+                <div className='h-72 flex items-center justify-center'>
+                    <img src={dataCollectImg} className='object-cover h-full' alt="" />
+                </div>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-7">
                     <div>
                         <label htmlFor="username" className="block text-sm font-medium text-black-200">

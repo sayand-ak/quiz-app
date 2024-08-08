@@ -80,15 +80,15 @@ const Result: React.FC = () => {
                             </p>
                         </div>
                     )}
-                <div className='text-white flex justify-between mt-4 mx-5'>
+                <div className='text-white flex gap-4 mt-4 mx-1'>
                     <button 
-                        className='bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg shadow-md transition-colors duration-300'
+                        className='bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg shadow-md transition-colors duration-300 w-full'
                         onClick={handleBackClick}
                     >
                         Back
                     </button>
                     <button 
-                        className='bg-red-600 hover:bg-red-700 text-white p-2 rounded-lg shadow-md transition-colors duration-300'
+                        className='bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg shadow-md transition-colors duration-300 w-full'
                         onClick={handleRetryClick}
                     >
                         Retry

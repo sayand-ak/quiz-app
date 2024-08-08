@@ -57,8 +57,8 @@ const Profile: React.FC = () => {
     
 
     return (
-        <div className="p-4 min-h-[100vh] bg-black-100 flex items-center justify-center">
-            <div className='w-[90%] md:w-1/2 p-10 rounded-2xl bg-[#e7e7e7f6]'>
+        <div className="min-h-[100vh] bg-black-100 flex md:items-center justify-center">
+            <div className='w-full md:w-1/2 p-10 md:rounded-2xl bg-[#e7e7e7f6]'>
                 <h1 className="text-2xl font-bold mb-4 text-tertiary text-center">Tell something about you!</h1>
                 <div className='h-72 flex items-center justify-center'>
                     <img src={dataCollectImg} className='object-cover h-full' alt="" />

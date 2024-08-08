@@ -51,8 +51,8 @@ const Result: React.FC = () => {
     return (
         <div className="bg-black-100 min-h-screen ">
             <Navbar />
-            <div className='min-h-[90vh] w-full flex items-center'>
-                <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+            <div className='min-h-[90vh] w-full flex md:items-center'>
+                <div className="max-w-md mx-auto bg-white md:rounded-lg shadow-lg p-6">
                     {performance ? (
                         <div className="flex flex-col items-center">
                             <div className="w-full mb-4">

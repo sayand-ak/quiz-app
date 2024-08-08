@@ -1,17 +1,31 @@
 import { IoMdArrowBack } from "react-icons/io";
 import { useSelector } from 'react-redux';
-import { RootState } from '../store/store'; // Adjust the import path as necessary
+import { persistor, RootState } from '../store/store'; // Adjust the import path as necessary
 import { styles } from "../styles";
 import { TiArrowSortedUp } from "react-icons/ti";
+import { useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
     // Use useSelector to get user data from Redux
     const user = useSelector((state: RootState) => state.user);
+    const navigate = useNavigate();
+
+     // Handle button click actions
+     const handleBackClick = () => {
+        // Clear local storage
+        localStorage.clear();
+
+        // Reset Redux persist
+        persistor.purge();
+
+        // Navigate to the previous page
+        navigate("/");
+    };
 
     return (
         <div className={`${styles.paddingX} min-h-[10vh] flex items-center justify-between`}>
-            <a href="/" className="hover:bg-[#0000004d] rounded-full p-2">
+            <a className="hover:bg-[#0000004d] rounded-full p-2" onClick={handleBackClick}>
                 <IoMdArrowBack className="text-[30px] md:text-[25px] hover:scale-110" />
             </a>
 

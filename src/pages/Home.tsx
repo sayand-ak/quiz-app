@@ -18,12 +18,12 @@ const Home = () => {
 
     return (
         <div className="w-full h-screen bg-black-100 flex items-center justify-center">
-            <div className="w-full md:w-[50%] h-full md:h-fit flex flex-col items-center gap-10 md:gap-8 bg-[#0000004e] pb-5 md:rounded-3xl">
+            <div className="w-full md:w-[50%] h-full md:h-fit flex flex-col items-center gap-4 md:gap-8 bg-[#0000004e] pb-5 md:rounded-3xl">
                 <Header />
 
                 <Directions />
 
-                <div className="bg-[#0001] rounded-full mt-12 md:mt-0">
+                <div className="bg-[#0001] rounded-full md:mt-0">
                     <div className="relative flex items-center justify-center bg-[#e7e7e7f6] w-fit rounded-full p-20 md:p-12 shadow-button">
                         <motion.a
                             href="/profile"

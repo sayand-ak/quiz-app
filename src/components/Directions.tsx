@@ -3,7 +3,7 @@ import { styles } from "../styles";
 
 const Directions = () => {
     return (
-       <ul className={`${styles.sectionSubText} ${styles.paddingY} flex flex-col gap-5 p-5 h-full bg-gray-700 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40`}>
+       <ul className={`${styles.sectionSubText} ${styles.paddingY} flex flex-col gap-5 p-8 m-2 bg-gray-700 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40`}>
         {
             directions.map((direction, index) => (
                 <li 

@@ -24,7 +24,7 @@ const Home = () => {
                 <Directions />
 
                 <div className="bg-[#0001] rounded-full mt-12 md:mt-0">
-                    <div className="relative flex items-center justify-center bg-white w-fit rounded-full p-20 md:p-12 shadow-button">
+                    <div className="relative flex items-center justify-center bg-[#e7e7e7f6] w-fit rounded-full p-20 md:p-12 shadow-button">
                         <motion.a
                             href="/profile"
                             whileHover={{ scale: 1.2 }}

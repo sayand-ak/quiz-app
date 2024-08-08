@@ -16,6 +16,7 @@ const Questions: React.FC<QuestionsProps> = ({ curIndex, setCurIndex }) => {
     const [submittedState, setSubmittedState] = useState<{ [key: number]: boolean }>({});
     const [showNextButton, setShowNextButton] = useState(false); 
     const [loading, setLoading] = useState(false);
+    const [timeoutMessage, setTimeoutMessage] = useState<string | null>(null); // New state for timeout message
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -61,21 +62,27 @@ const Questions: React.FC<QuestionsProps> = ({ curIndex, setCurIndex }) => {
     };
 
     useEffect(() => {
-
-        const endTime = localStorage.getItem("endTime");
-        if (endTime) {
-            const endDate = new Date(endTime);
-            const now = new Date();
-
-            // Check if current time is greater than end time
-            if (now > endDate) {
-                setShowNextButton(true);
-                setSubmittedState(prev => ({ ...prev, [curIndex]: true }));
-            } else {
-                setShowNextButton(false);
+        const checkTimeout = () => {
+            const endTime = localStorage.getItem("endTime");
+            if (endTime) {
+                const endDate = new Date(endTime);
+                const now = new Date();
+                if (now > endDate) {
+                    setShowNextButton(true);
+                    setSubmittedState(prev => ({ ...prev, [curIndex]: true }));
+                    setTimeoutMessage("Timeout! Please proceed to the next question.");
+                } else {
+                    setShowNextButton(false);
+                    setTimeoutMessage(null);
+                }
             }
-        }
+        };
 
+        // Check timeout status every second
+        const intervalId = setInterval(checkTimeout, 1000);
+
+        // Clean up interval on component unmount
+        return () => clearInterval(intervalId);
     }, [curIndex]);
 
     return (
@@ -115,6 +122,11 @@ const Questions: React.FC<QuestionsProps> = ({ curIndex, setCurIndex }) => {
                     >
                         {!loading ? "Next" : "Loading..."}
                     </button>
+                )}
+                 {timeoutMessage && (
+                    <div className="h-10 mt-4 rounded-lg flex items-center justify-center text-white bg-red-500">
+                        {timeoutMessage}
+                    </div>
                 )}
             </div>
         </div>

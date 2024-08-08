@@ -2,6 +2,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // This is for local storage
 import { quizSlice } from '../features/quizSlice';
+import { userSlice } from '../features/userSlice';
 
 // Create a persist configuration
 const persistConfig = {
@@ -12,6 +13,7 @@ const persistConfig = {
 // Combine reducers
 const rootReducer = combineReducers({
     quiz: quizSlice.reducer,
+    user: userSlice.reducer,
 });
 
 // Create a persisted reducer
@@ -20,6 +22,14 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 // Configure the Redux store
 const store = configureStore({
     reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                // Ignore specific actions or paths if necessary
+                ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
+                ignoredPaths: ['persist'],
+            },
+        }),
 });
 
 // Create a persistor

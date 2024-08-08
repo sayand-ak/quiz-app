@@ -19,6 +19,7 @@ interface QuestionItemProps {
 }
 
 const QuestionItem: React.FC<QuestionItemProps> = ({ question, option, index, idx, submitted, selectedOption, handleRadioChange }) => {
+
     return (
         <li
             key={idx}
@@ -48,6 +49,7 @@ const QuestionItem: React.FC<QuestionItemProps> = ({ question, option, index, id
                 )}
             </div>
         </li>
+
     );
 };
 

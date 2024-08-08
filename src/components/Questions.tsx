@@ -5,6 +5,7 @@ import { QuestionItem, Timer } from "../components"
 import { useDispatch } from "react-redux";
 import { incrementScore } from "../features/quizSlice";
 import { useNavigate } from "react-router-dom";
+import Confetti from 'react-confetti'
 
 interface QuestionsProps {
     curIndex: number;
@@ -113,6 +114,9 @@ const Questions: React.FC<QuestionsProps> = ({ curIndex, setCurIndex }) => {
                                 />
                             ))
                         }
+                        {(submittedState[curIndex] && selectedOption === questions[curIndex].answer) && (
+                            <Confetti width={650} height={500} />
+                        )}                    
                     </ul>
                 </div>
                 {(selectedOption != null || showNextButton) && (
